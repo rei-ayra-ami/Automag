@@ -1,16 +1,12 @@
-# flutter_application_1
+Рахпанов Аян A&Н Абдыманапулы Нурсултан
 
-A new Flutter project.
+9-2ПО-22
 
-## Getting Started
+Назначение приложения
+Приложение предназначено для онлайн-заказа автомобильных запчастей с возможностью подбора, оформления и доставки напрямую пользователю.
 
-This project is a starting point for a Flutter application.
+Какую проблему решает
+Приложение решает проблему долгого и неудобного поиска автозапчастей, необходимости посещать магазины и риска купить неподходящую деталь, обеспечивая быстрый и понятный заказ в одном месте.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Целевая аудитория
+Приложение создано для автовладельцев, автолюбителей, а также людей, самостоятельно обслуживающих и ремонтирующих свои автомобили.
