@@ -13,9 +13,24 @@ class _CatalogScreenState extends State<CatalogScreen> {
   String query = '';
 
   final parts = [
-    Part(name: 'Тормозные колодки', model: 'Toyota Camry', price: 12000),
-    Part(name: 'Масляный фильтр', model: 'Nissan Sunny', price: 3500),
-    Part(name: 'Свечи зажигания', model: 'Honda Accord', price: 8000),
+    Part(
+      name: 'Тормозные колодки',
+      model: 'Toyota Camry',
+      price: 12000,
+      image: 'assets/images/parts/brake_pads.png',
+    ),
+    Part(
+      name: 'Масляный фильтр',
+      model: 'Nissan Sunny',
+      price: 3500,
+      image: 'assets/images/parts/oil_filter.png',
+    ),
+    Part(
+      name: 'Свечи зажигания',
+      model: 'Honda Accord',
+      price: 8000,
+      image: 'assets/images/parts/spark_plug.png',
+    ),
   ];
 
   @override
@@ -49,6 +64,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
             itemCount: filtered.length,
             itemBuilder: (context, index) {
               final part = filtered[index];
+
               return GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -69,17 +85,19 @@ class _CatalogScreenState extends State<CatalogScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Icon(
-                            Icons.settings,
-                            size: 60,
-                            color: Colors.blue.shade400,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              part.image,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
                           ),
                         ),
+                        const SizedBox(height: 6),
                         Text(
                           part.name,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           part.model,

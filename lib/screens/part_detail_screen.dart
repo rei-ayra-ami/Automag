@@ -11,28 +11,22 @@ class PartDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(part.name),
-      ),
+      appBar: AppBar(title: Text(part.name)),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Icon(
-                Icons.settings,
-                size: 120,
-                color: Colors.blue.shade400,
+              child: Image.asset(
+                part.image,
+                height: 150,
               ),
             ),
             const SizedBox(height: 20),
             Text(
               part.name,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
@@ -42,10 +36,7 @@ class PartDetailScreen extends StatelessWidget {
             const SizedBox(height: 12),
             Text(
               '${part.price} ₸',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const Spacer(),
             SizedBox(

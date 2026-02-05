@@ -20,12 +20,23 @@ class OrdersScreen extends StatelessWidget {
             itemCount: cart.items.length,
             itemBuilder: (context, index) {
               final item = cart.items[index];
+
               return ListTile(
-                title: Text(item.name),
-                subtitle: Text(item.model),
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () => cart.remove(item),
+                title: Text(item.part.name),
+                subtitle: Text('${item.part.model} • ${item.part.price} ₸'),
+                leading: IconButton(
+                  icon: const Icon(Icons.remove),
+                  onPressed: () => cart.decrease(item.part),
+                ),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('x${item.quantity}'),
+                    IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: () => cart.add(item.part),
+                    ),
+                  ],
                 ),
               );
             },
