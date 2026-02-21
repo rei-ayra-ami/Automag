@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'app.dart';
 import 'providers/cart_provider.dart';
 
-void main() {
+void main() { 
   runApp(
     ChangeNotifierProvider(
       create: (_) => CartProvider(),

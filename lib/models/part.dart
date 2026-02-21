@@ -10,4 +10,13 @@ class Part {
     required this.price,
     required this.image,
   });
+
+  factory Part.fromJson(Map<String, dynamic> json) {
+    return Part(
+      name: json['title'],
+      model: 'Universal', 
+      price: json['price'],
+      image: json['thumbnail'],
+    );
+  }
 }
