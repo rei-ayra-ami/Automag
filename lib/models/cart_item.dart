@@ -7,22 +7,14 @@ class CartItem {
   CartItem({required this.part, this.quantity = 1});
 
   Map<String, dynamic> toJson() => {
-        'name': part.name,
-        'model': part.model,
-        'price': part.price,
-        'image': part.image,   // ДОБАВИЛИ
+        'part': part.toJson(),
         'quantity': quantity,
       };
 
   factory CartItem.fromJson(Map<String, dynamic> json) {
     return CartItem(
-      part: Part(
-        name: json['name'],
-        model: json['model'],
-        price: json['price'],
-        image: json['image'],   // ДОБАВИЛИ
-      ),
-      quantity: json['quantity'],
+      part: Part.fromJson(json['part'] as Map<String, dynamic>),
+      quantity: json['quantity'] as int,
     );
   }
 }

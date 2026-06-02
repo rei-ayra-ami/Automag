@@ -9,6 +9,7 @@ class AuthService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_loginKey, login);
     await prefs.setString(_passwordKey, password);
+    await prefs.setBool(_isLoggedKey, true);
   }
 
   static Future<bool> login(String login, String password) async {
@@ -21,6 +22,11 @@ class AuthService {
       return true;
     }
     return false;
+  }
+
+  static Future<String?> currentLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_loginKey);
   }
 
   static Future<bool> isLoggedIn() async {

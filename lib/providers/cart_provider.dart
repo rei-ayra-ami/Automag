@@ -14,7 +14,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   void add(Part part) {
-    final index = _items.indexWhere((i) => i.part.name == part.name);
+    final index = _items.indexWhere((i) => i.part.id == part.id);
 
     if (index >= 0) {
       _items[index].quantity++;
@@ -27,7 +27,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   void decrease(Part part) {
-    final index = _items.indexWhere((i) => i.part.name == part.name);
+    final index = _items.indexWhere((i) => i.part.id == part.id);
 
     if (index >= 0) {
       if (_items[index].quantity > 1) {
@@ -41,8 +41,30 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Полностью убрать позицию из корзины (независимо от количества).
+  void removeItem(Part part) {
+    _items.removeWhere((i) => i.part.id == part.id);
+    saveCart();
+    notifyListeners();
+  }
+
   int get totalPrice =>
       _items.fold(0, (sum, item) => sum + item.part.price * item.quantity);
+
+  int get totalCount =>
+      _items.fold(0, (sum, item) => sum + item.quantity);
+
+  /// Сколько штук конкретного товара уже в корзине (0 — если нет).
+  int quantityOf(String partId) {
+    final index = _items.indexWhere((i) => i.part.id == partId);
+    return index >= 0 ? _items[index].quantity : 0;
+  }
+
+  void clear() {
+    _items.clear();
+    saveCart();
+    notifyListeners();
+  }
 
   Future<void> saveCart() async {
     final prefs = await SharedPreferences.getInstance();
