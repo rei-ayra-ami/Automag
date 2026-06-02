@@ -19,3 +19,4 @@ flutter:
   assets:
     - assets/images/automag_logo.png
     - assets/images/parts/
+    - assets/data/parts.json
