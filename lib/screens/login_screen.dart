@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (loginText.isEmpty || passText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Введите логин и пароль')),
+        const SnackBar(content: Text('Введите email и пароль')),
       );
       return;
     }
@@ -66,9 +66,12 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 28),
               TextField(
                 controller: loginController,
+                keyboardType: TextInputType.emailAddress,
+                autofillHints: const [AutofillHints.email],
                 decoration: const InputDecoration(
-                  labelText: 'Логин',
-                  prefixIcon: Icon(Icons.person_outline),
+                  labelText: 'Email',
+                  hintText: 'name@mail.ru',
+                  prefixIcon: Icon(Icons.alternate_email),
                   border: OutlineInputBorder(),
                 ),
               ),

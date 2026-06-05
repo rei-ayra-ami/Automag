@@ -23,7 +23,7 @@
       "model": "VW Golf, Skoda Octavia (2013+)",
       "category": "Тормозная система",
       "price": 24500,
-      "image": null,
+      "image": "assets/images/parts/brake_disc.jpg",
       "description": "Вентилируемый тормозной диск Brembo с антикоррозийным покрытием. Обеспечивает эффективный отвод тепла и устойчивость к деформации.",
       "specs": {
         "Диаметр": "288 мм",
@@ -71,7 +71,7 @@
       "model": "Hyundai Accent, Kia Rio",
       "category": "Фильтры",
       "price": 4200,
-      "image": null,
+      "image": "assets/images/parts/air_filter.jpg",
       "description": "Воздушный фильтр двигателя Mann с высокой пылеёмкостью. Обеспечивает оптимальную подачу воздуха и экономию топлива.",
       "specs": {
         "Длина": "247 мм",
@@ -87,7 +87,7 @@
       "model": "Mercedes-Benz, BMW (дизель)",
       "category": "Фильтры",
       "price": 5600,
-      "image": null,
+      "image": "assets/images/parts/fuel_filter_mann.jpg",
       "description": "Топливный фильтр Mann для дизельных двигателей. Задерживает воду и механические примеси, защищая топливную аппаратуру.",
       "specs": {
         "Тип топлива": "Дизель",
@@ -119,7 +119,7 @@
       "model": "ВАЗ 2110-2112",
       "category": "Зажигание",
       "price": 5900,
-      "image": null,
+      "image": "assets/images/parts/ignition_wires.jpg",
       "description": "Силиконовые высоковольтные провода с пониженным сопротивлением. Устойчивы к пробою и высоким температурам.",
       "specs": {
         "Сопротивление": "Пониженное",
@@ -167,7 +167,7 @@
       "model": "Универсальный (легковые)",
       "category": "Электрика",
       "price": 42000,
-      "image": null,
+      "image": "assets/images/parts/battery.jpg",
       "description": "Свинцово-кислотный аккумулятор Bosch S4 с высоким пусковым током. Не требует обслуживания.",
       "specs": {
         "Ёмкость": "60 Ач",
@@ -183,7 +183,7 @@
       "model": "Lada Vesta, Granta",
       "category": "Электрика",
       "price": 65000,
-      "image": null,
+      "image": "assets/images/parts/alternator.jpg",
       "description": "Генератор Valeo с интегрированным регулятором напряжения. Стабильная зарядка бортовой сети при любых оборотах.",
       "specs": {
         "Сила тока": "90 A",
@@ -199,7 +199,7 @@
       "model": "Toyota Corolla (2007-2013)",
       "category": "Подвеска",
       "price": 28500,
-      "image": null,
+      "image": "assets/images/parts/shock_absorber.jpg",
       "description": "Газомасляный амортизатор KYB Excel-G, восстанавливающий заводские характеристики подвески. Улучшенная управляемость.",
       "specs": {
         "Тип": "Газомасляный",
@@ -215,7 +215,7 @@
       "model": "Hyundai Solaris, Kia Rio",
       "category": "Подвеска",
       "price": 7900,
-      "image": null,
+      "image": "assets/images/parts/ball_joint.jpg",
       "description": "Шаровая опора рычага CTR с защитным пыльником. Точное соединение элементов подвески, ресурс до 80 000 км.",
       "specs": {
         "Резьба": "M14 x 1.5",
@@ -231,7 +231,7 @@
       "model": "Volkswagen Passat B6",
       "category": "Охлаждение",
       "price": 45000,
-      "image": null,
+      "image": "assets/images/parts/radiator.jpg",
       "description": "Алюминиевый радиатор Nissens с пластиковыми бачками. Эффективный отвод тепла и защита двигателя от перегрева.",
       "specs": {
         "Материал": "Алюминий",
@@ -247,7 +247,7 @@
       "model": "Chevrolet Lacetti, Aveo",
       "category": "Охлаждение",
       "price": 19500,
-      "image": null,
+      "image": "assets/images/parts/water_pump.jpg",
       "description": "Водяной насос Hepu с чугунной крыльчаткой и керамическим уплотнением. Обеспечивает циркуляцию охлаждающей жидкости.",
       "specs": {
         "Крыльчатка": "Металлическая",
@@ -263,7 +263,7 @@
       "model": "Универсальные 600/400 мм",
       "category": "Кузов и оптика",
       "price": 5400,
-      "image": null,
+      "image": "assets/images/parts/wipers.jpg",
       "description": "Бескаркасные щётки стеклоочистителя Bosch Aerotwin. Равномерное прилегание и бесшумная работа в любую погоду.",
       "specs": {
         "Длина": "600 / 400 мм",
@@ -279,7 +279,7 @@
       "model": "Универсальная",
       "category": "Кузов и оптика",
       "price": 3200,
-      "image": null,
+      "image": "assets/images/parts/bulb_h4.jpg",
       "description": "Галогенная лампа Osram Night Breaker с увеличенной яркостью до 150%. Улучшенная видимость в тёмное время суток.",
       "specs": {
         "Цоколь": "P43t",
@@ -295,7 +295,7 @@
       "model": "Универсальное (бензин/дизель)",
       "category": "Масла и жидкости",
       "price": 16900,
-      "image": null,
+      "image": "assets/images/parts/engine_oil_castrol.jpg",
       "description": "Синтетическое моторное масло Castrol Edge 5W-40 с технологией Fluid Titanium. Защита двигателя при высоких нагрузках.",
       "specs": {
         "Вязкость": "5W-40",
@@ -311,13 +311,258 @@
       "model": "Универсальный",
       "category": "Масла и жидкости",
       "price": 7200,
-      "image": null,
+      "image": "assets/images/parts/antifreeze.jpg",
       "description": "Готовый к применению антифриз класса G12+ на основе карбоновой кислоты. Защита системы охлаждения от коррозии и замерзания.",
       "specs": {
         "Класс": "G12+",
         "Цвет": "Красный",
         "Температура замерзания": "-40°C",
         "Объём": "5 л"
+      }
+    },
+    {
+      "id": "ENG-002",
+      "name": "Поршневые кольца",
+      "brand": "Mahle",
+      "model": "Lada Granta, Kalina 1.6",
+      "category": "Двигатель",
+      "price": 18500,
+      "description": "Комплект поршневых колец Mahle. Низкий расход масла и стабильная компрессия.",
+      "image": "assets/images/parts/engine_rings.jpg",
+      "specs": {
+        "Диаметр": "82.0 мм",
+        "Кол-во цилиндров": "4",
+        "Материал": "Чугун"
+      }
+    },
+    {
+      "id": "ENG-003",
+      "name": "Прокладка ГБЦ",
+      "brand": "Victor Reinz",
+      "model": "Volkswagen Polo 1.6",
+      "category": "Двигатель",
+      "price": 7200,
+      "description": "Многослойная металлическая прокладка головки блока цилиндров.",
+      "image": "assets/images/parts/head_gasket.jpg",
+      "specs": {
+        "Тип": "Многослойная (MLS)",
+        "Толщина": "1.4 мм"
+      }
+    },
+    {
+      "id": "ENG-004",
+      "name": "Маслосъёмные колпачки",
+      "brand": "Elring",
+      "model": "Toyota Camry 2.4",
+      "category": "Двигатель",
+      "price": 4300,
+      "description": "Комплект маслосъёмных колпачков из вязкоэластичного каучука FKM.",
+      "image": "assets/images/parts/valve_seals.jpg",
+      "specs": {
+        "Кол-во": "16 шт",
+        "Материал": "FKM"
+      }
+    },
+    {
+      "id": "TRN-002",
+      "name": "Корзина сцепления",
+      "brand": "Sachs",
+      "model": "Hyundai Accent 1.4",
+      "category": "Трансмиссия",
+      "price": 26500,
+      "description": "Нажимной диск сцепления Sachs. Точное усилие прижима и долгий ресурс.",
+      "image": "assets/images/parts/clutch_basket.jpg",
+      "specs": {
+        "Диаметр": "200 мм",
+        "Тип": "Сухое"
+      }
+    },
+    {
+      "id": "TRN-003",
+      "name": "Подшипник выжимной",
+      "brand": "LUK",
+      "model": "Kia Rio 1.6",
+      "category": "Трансмиссия",
+      "price": 8900,
+      "description": "Выжимной подшипник сцепления LUK. Бесшумная работа.",
+      "image": "assets/images/parts/release_bearing.jpg",
+      "specs": {
+        "Тип": "Механический",
+        "Диаметр": "34 мм"
+      }
+    },
+    {
+      "id": "TRN-004",
+      "name": "ШРУС наружный",
+      "brand": "GKN",
+      "model": "Renault Logan 1.6",
+      "category": "Трансмиссия",
+      "price": 14200,
+      "description": "Шарнир равных угловых скоростей в сборе с пыльником и смазкой.",
+      "image": "assets/images/parts/cv_joint.jpg",
+      "specs": {
+        "Шлицы": "22x25",
+        "Комплект": "Пыльник + смазка"
+      }
+    },
+    {
+      "id": "BRK-003",
+      "name": "Тормозные колодки задние",
+      "brand": "TRW",
+      "model": "Volkswagen Polo, Skoda Rapid",
+      "category": "Тормозная система",
+      "price": 9800,
+      "description": "Задние дисковые тормозные колодки TRW с малым уровнем пыли.",
+      "image": "assets/images/parts/brake_pads_rear.jpg",
+      "specs": {
+        "Высота": "42 мм",
+        "Толщина": "17 мм",
+        "Кол-во": "4 шт"
+      }
+    },
+    {
+      "id": "BRK-005",
+      "name": "Тормозная жидкость DOT-4",
+      "brand": "Bosch",
+      "model": "Универсальный",
+      "category": "Тормозная система",
+      "price": 3200,
+      "description": "Синтетическая тормозная жидкость DOT-4, 0.5 л.",
+      "image": "assets/images/parts/brake_fluid.jpg",
+      "specs": {
+        "Класс": "DOT-4",
+        "Объём": "0.5 л",
+        "Темп. кипения": "230°C"
+      }
+    },
+    {
+      "id": "FLT-005",
+      "name": "Фильтр салонный угольный",
+      "brand": "Mann",
+      "model": "Hyundai Solaris, Kia Rio",
+      "category": "Фильтры",
+      "price": 3800,
+      "description": "Салонный фильтр с активированным углём. Защита от пыли и запахов.",
+      "image": "assets/images/parts/cabin_filter.jpg",
+      "specs": {
+        "Тип": "Угольный",
+        "Длина": "275 мм",
+        "Ширина": "205 мм"
+      }
+    },
+    {
+      "id": "FLT-006",
+      "name": "Фильтр топливный",
+      "brand": "Bosch",
+      "model": "Lada Vesta 1.6",
+      "category": "Фильтры",
+      "price": 4500,
+      "description": "Топливный фильтр тонкой очистки Bosch.",
+      "image": "assets/images/parts/fuel_filter.jpg",
+      "specs": {
+        "Резьба": "M12x1.5",
+        "Давление": "6 бар"
+      }
+    },
+    {
+      "id": "IGN-003",
+      "name": "Катушка зажигания",
+      "brand": "NGK",
+      "model": "Nissan Almera 1.6",
+      "category": "Зажигание",
+      "price": 12400,
+      "description": "Индивидуальная катушка зажигания NGK. Стабильная искра.",
+      "image": "assets/images/parts/ignition_coil.jpg",
+      "specs": {
+        "Напряжение": "12 В",
+        "Тип": "Индивидуальная"
+      }
+    },
+    {
+      "id": "ELC-005",
+      "name": "Стартер",
+      "brand": "Bosch",
+      "model": "Volkswagen Polo 1.6",
+      "category": "Электрика",
+      "price": 47500,
+      "description": "Стартер Bosch с редуктором. Уверенный пуск в мороз.",
+      "image": "assets/images/parts/starter.jpg",
+      "specs": {
+        "Мощность": "1.1 кВт",
+        "Зубья": "9"
+      }
+    },
+    {
+      "id": "SUS-005",
+      "name": "Стойка стабилизатора",
+      "brand": "Febi",
+      "model": "Toyota Camry 2.5",
+      "category": "Подвеска",
+      "price": 4200,
+      "description": "Стойка (линк) переднего стабилизатора Febi Bilstein.",
+      "image": "assets/images/parts/stabilizer_link.jpg",
+      "specs": {
+        "Длина": "95 мм",
+        "Резьба": "M10"
+      }
+    },
+    {
+      "id": "BDY-003",
+      "name": "Фара передняя левая",
+      "brand": "Depo",
+      "model": "Hyundai Accent",
+      "category": "Кузов и оптика",
+      "price": 24800,
+      "description": "Передняя левая фара Depo под галоген, с регулировкой.",
+      "image": "assets/images/parts/headlight.jpg",
+      "specs": {
+        "Сторона": "Левая",
+        "Тип лампы": "H4"
+      }
+    },
+    {
+      "id": "BDY-004",
+      "name": "Зеркало боковое правое",
+      "brand": "Alkar",
+      "model": "Kia Rio",
+      "category": "Кузов и оптика",
+      "price": 13900,
+      "description": "Правое боковое зеркало с электроприводом и обогревом.",
+      "image": "assets/images/parts/side_mirror.jpg",
+      "specs": {
+        "Сторона": "Правая",
+        "Обогрев": "Есть",
+        "Привод": "Электро"
+      }
+    },
+    {
+      "id": "OIL-003",
+      "name": "Масло моторное 5W-40",
+      "brand": "Mobil",
+      "model": "Универсальный",
+      "category": "Масла и жидкости",
+      "price": 18900,
+      "description": "Синтетическое моторное масло Mobil 1 5W-40, 4 л.",
+      "image": "assets/images/parts/engine_oil_5w40.jpg",
+      "specs": {
+        "Вязкость": "5W-40",
+        "Объём": "4 л",
+        "Тип": "Синтетика"
+      }
+    },
+    {
+      "id": "OIL-004",
+      "name": "Масло трансмиссионное 75W-90",
+      "brand": "Castrol",
+      "model": "Универсальный",
+      "category": "Масла и жидкости",
+      "price": 12300,
+      "description": "Трансмиссионное масло Castrol 75W-90 для МКПП, 1 л.",
+      "image": "assets/images/parts/gear_oil.jpg",
+      "specs": {
+        "Вязкость": "75W-90",
+        "Объём": "1 л",
+        "Стандарт": "GL-4"
       }
     }
   ]

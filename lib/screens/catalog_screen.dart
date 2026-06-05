@@ -33,6 +33,52 @@ class _CatalogScreenState extends State<CatalogScreen> {
     return byCategory && bySearch;
   }
 
+  /// Выпадающие подсказки при вводе в поиск: до 6 совпадений по
+  /// названию или бренду. Тап по подсказке открывает карточку товара.
+  Widget _buildSuggestions(BuildContext context, List<Part> parts) {
+    final q = query.trim().toLowerCase();
+    final suggestions = parts
+        .where((p) =>
+            p.name.toLowerCase().contains(q) ||
+            p.brand.toLowerCase().contains(q))
+        .take(6)
+        .toList();
+    if (suggestions.isEmpty) return const SizedBox.shrink();
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Column(
+        children: [
+          for (final p in suggestions)
+            ListTile(
+              dense: true,
+              leading: Icon(p.categoryIcon,
+                  color: Theme.of(context).colorScheme.primary),
+              title:
+                  Text(p.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+              subtitle: Text('${p.brand} · ${p.category}',
+                  maxLines: 1, overflow: TextOverflow.ellipsis),
+              trailing: Text('${formatPrice(p.price)} ₸',
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => PartDetailScreen(part: p)),
+                );
+              },
+            ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Part>>(
@@ -86,6 +132,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 onChanged: (value) => setState(() => query = value),
               ),
             ),
+            if (query.trim().isNotEmpty) _buildSuggestions(context, parts),
             SizedBox(
               height: 44,
               child: ListView.separated(

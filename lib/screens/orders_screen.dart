@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
 import 'catalog_screen.dart' show PartImage, formatPrice;
+import 'checkout_screen.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -150,22 +151,10 @@ class OrdersScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (dialogContext) => AlertDialog(
-                        title: const Text('Заказ оформлен'),
-                        content: const Text(
-                          'Ваш заказ принят. С вами свяжется менеджер.',
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              cart.clear();
-                              Navigator.pop(dialogContext);
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const CheckoutScreen(),
                       ),
                     );
                   },
