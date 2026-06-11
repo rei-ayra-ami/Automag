@@ -10,11 +10,13 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
 
   @override
   void dispose() {
+    nameController.dispose();
     emailController.dispose();
     passController.dispose();
     super.dispose();
@@ -27,12 +29,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void register() async {
+    final name = nameController.text.trim();
     final email = emailController.text.trim();
     final pass = passController.text;
 
-    if (email.isEmpty || pass.isEmpty) {
+    if (name.isEmpty || email.isEmpty || pass.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Введите email и пароль')),
+        const SnackBar(content: Text('Заполните имя, email и пароль')),
       );
       return;
     }
@@ -49,8 +52,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return;
     }
 
-    await AuthService.register(email, pass);
+    final result = await AuthService.register(email, pass, name: name);
     if (!mounted) return;
+
+    if (!result.ok) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(result.error ?? 'Не удалось зарегистрироваться')),
+      );
+      return;
+    }
 
     Navigator.pushReplacement(
       context,
@@ -69,6 +79,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             const Text('Создать аккаунт', style: TextStyle(fontSize: 24)),
             const SizedBox(height: 16),
+            TextField(
+              controller: nameController,
+              textCapitalization: TextCapitalization.words,
+              decoration: const InputDecoration(
+                labelText: 'Имя',
+                hintText: 'Как к вам обращаться',
+                prefixIcon: Icon(Icons.person_outline),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 12),
             TextField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/part.dart';
-import '../services/api_service.dart';
+import '../services/product_service.dart';
 import 'part_detail_screen.dart';
 
 class CatalogScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
   @override
   void initState() {
     super.initState();
-    partsFuture = ApiService.fetchParts();
+    partsFuture = ProductService.fetchParts();
   }
 
   bool _matches(Part p) {
@@ -98,7 +98,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 const SizedBox(height: 8),
                 ElevatedButton(
                   onPressed: () => setState(
-                      () => partsFuture = ApiService.fetchParts()),
+                      () => partsFuture = ProductService.fetchParts()),
                   child: const Text('Повторить'),
                 ),
               ],
@@ -167,7 +167,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   ? const Center(child: Text('Ничего не найдено'))
                   : RefreshIndicator(
                       onRefresh: () async {
-                        final f = ApiService.fetchParts();
+                        final f = ProductService.fetchParts();
                         setState(() => partsFuture = f);
                         await f;
                       },
@@ -274,6 +274,16 @@ class PartImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Сначала — фото, загруженное вручную (хранится в БД), затем ассет.
+    final bytes = part.imageBytes;
+    if (bytes != null && bytes.isNotEmpty) {
+      return Image.memory(
+        bytes,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        errorBuilder: (context, _, __) => _placeholder(context),
+      );
+    }
     final img = part.image;
     if (img == null || img.isEmpty) {
       return _placeholder(context);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import '../services/auth_service.dart';
+import '../services/order_service.dart';
 import 'catalog_screen.dart' show formatPrice;
 
 /// Способ получения заказа.
@@ -21,10 +23,31 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   final _addressController = TextEditingController();
 
   DeliveryMethod _method = DeliveryMethod.delivery;
+  bool _submitting = false;
 
   // Адрес пункта самовывоза (для демонстрации).
   static const String _pickupPoint =
       'г. Алматы, ул. Толе би 285, склад «Automag», ежедневно 9:00–19:00';
+
+  @override
+  void initState() {
+    super.initState();
+    _prefillFromProfile();
+  }
+
+  /// Подставляет имя и телефон из профиля, чтобы не вводить заново.
+  Future<void> _prefillFromProfile() async {
+    final user = await AuthService.currentUser();
+    if (!mounted || user == null) return;
+    setState(() {
+      if (_nameController.text.isEmpty && (user.name ?? '').isNotEmpty) {
+        _nameController.text = user.name!;
+      }
+      if (_phoneController.text.isEmpty && (user.phone ?? '').isNotEmpty) {
+        _phoneController.text = user.phone!;
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -34,23 +57,51 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     super.dispose();
   }
 
-  void _submit(CartProvider cart) {
+  Future<void> _submit(CartProvider cart) async {
     if (!_formKey.currentState!.validate()) return;
+    if (_submitting) return;
 
     final isPickup = _method == DeliveryMethod.pickup;
+    final customer = _nameController.text.trim();
+    final phone = _phoneController.text.trim();
+    final address = _addressController.text.trim();
+
+    setState(() => _submitting = true);
+    final orderId = await OrderService.createOrder(
+      items: cart.items,
+      customerName: customer,
+      phone: phone,
+      deliveryMethod: isPickup ? 'pickup' : 'delivery',
+      address: isPickup ? null : address,
+    );
+    if (!mounted) return;
+    setState(() => _submitting = false);
+
+    if (orderId == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Не удалось оформить заказ. '
+              'Войдите в аккаунт и попробуйте снова.'),
+        ),
+      );
+      return;
+    }
+
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Заказ оформлен'),
+        title: Text('Заказ №$orderId оформлен'),
         content: Text(
           isPickup
-              ? 'Спасибо, ${_nameController.text.trim()}! '
-                  'Заказ готовится к самовывозу:\n\n$_pickupPoint\n\n'
-                  'Мы позвоним вам по номеру ${_phoneController.text.trim()}.'
-              : 'Спасибо, ${_nameController.text.trim()}! '
-                  'Заказ будет доставлен по адресу:\n\n'
-                  '${_addressController.text.trim()}\n\n'
-                  'Мы позвоним вам по номеру ${_phoneController.text.trim()}.',
+              ? 'Спасибо, $customer! Заказ №$orderId готовится к самовывозу:'
+                  '\n\n$_pickupPoint\n\n'
+                  'Статус заказа можно отслеживать в разделе «Мои заказы» '
+                  '(вкладка «Профиль»). Мы позвоним вам по номеру $phone.'
+              : 'Спасибо, $customer! Заказ №$orderId будет доставлен по адресу:'
+                  '\n\n$address\n\n'
+                  'Статус заказа можно отслеживать в разделе «Мои заказы» '
+                  '(вкладка «Профиль»). Мы позвоним вам по номеру $phone.',
         ),
         actions: [
           TextButton(
@@ -193,8 +244,17 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
-                onPressed: cart.items.isEmpty ? null : () => _submit(cart),
-                child: const Text('Подтвердить заказ'),
+                onPressed: (cart.items.isEmpty || _submitting)
+                    ? null
+                    : () => _submit(cart),
+                child: _submitting
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                            strokeWidth: 2, color: Colors.white),
+                      )
+                    : const Text('Подтвердить заказ'),
               ),
             ),
           ],

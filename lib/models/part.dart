@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 class Part {
@@ -10,6 +13,7 @@ class Part {
   final String description;
   final Map<String, String> specs; // характеристики
   final String? image; // путь к ассету или null
+  final Uint8List? imageBytes; // фото, загруженное вручную (хранится в БД)
 
   Part({
     required this.id,
@@ -21,9 +25,11 @@ class Part {
     required this.description,
     required this.specs,
     this.image,
+    this.imageBytes,
   });
 
   factory Part.fromJson(Map<String, dynamic> json) {
+    final rawBytes = json['imageBytes'] as String?;
     return Part(
       id: json['id'] as String,
       name: json['name'] as String,
@@ -35,6 +41,8 @@ class Part {
       specs: (json['specs'] as Map<String, dynamic>? ?? {})
           .map((k, v) => MapEntry(k, v.toString())),
       image: json['image'] as String?,
+      imageBytes:
+          (rawBytes != null && rawBytes.isNotEmpty) ? base64Decode(rawBytes) : null,
     );
   }
 
@@ -48,6 +56,7 @@ class Part {
         'description': description,
         'specs': specs,
         'image': image,
+        if (imageBytes != null) 'imageBytes': base64Encode(imageBytes!),
       };
 
   /// Иконка категории — показывается в карточке, если у товара нет фото.

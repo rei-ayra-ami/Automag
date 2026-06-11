@@ -32,17 +32,17 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    final success = await AuthService.login(loginText, passText);
+    final result = await AuthService.login(loginText, passText);
     if (!mounted) return;
 
-    if (success) {
+    if (result.ok) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const HomeScreen()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Неверный логин или пароль')),
+        SnackBar(content: Text(result.error ?? 'Неверный email или пароль')),
       );
     }
   }

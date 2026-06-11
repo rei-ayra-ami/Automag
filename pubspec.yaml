@@ -11,8 +11,21 @@ dependencies:
   shared_preferences: ^2.0.15
   cupertino_icons: ^1.0.5
   http: ^1.2.0
+  # Встроенная база данных (SQLite). drift — типобезопасный слой над SQLite,
+  # drift_flutter подбирает движок под платформу (desktop/mobile/web).
+  drift: ^2.18.0
+  drift_flutter: ^0.2.0
+  # Хеширование паролей (SHA-256 + соль) — pure Dart, работает и в web.
+  crypto: ^3.0.0
+  # Выбор файла с фото товара (web + desktop + mobile).
+  file_picker: ^8.0.0
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   flutter_lints: ^3.0.1
+  # Кодогенерация для drift (создаёт database.g.dart).
+  drift_dev: ^2.18.0
+  build_runner: ^2.4.0
 
 flutter:
   uses-material-design: true
